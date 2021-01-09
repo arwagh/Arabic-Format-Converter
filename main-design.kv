@@ -2,41 +2,59 @@
 #:import alg bidi.algorithm
 #:import arabic_reshaper arabic_reshaper
 
-<MyGridLayout>
+<MyLayout>
     img:img
     video:video
     audio:audio
 
-    GridLayout:
-        cols: 1
+    BoxLayout:
+        orientation: "vertical"
         size: root.width, root.height
 
-        GridLayout:
-            cols: 1
+        padding: 5
+        spacing: 5
 
-            Button:
-                id: img
-                text: alg.get_display(arabic_reshaper.reshape("صورة"))
-                font_name:"arial"
-                font_size: 32
-                background_normal: ''
-                #Using RGB
-                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+        Button:
+            id: img
+            text: alg.get_display(arabic_reshaper.reshape("صورة"))
+            font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+            font_size: 32
+            background_normal: ''
+            #Using RGB
+            background_color: (141/255.0, 165/255.0, 217/255.0, 1)
 
-            Button:
-                id: video
-                text: alg.get_display(arabic_reshaper.reshape("مقطع مرئي"))
-                font_name:"arial"
-                font_size: 32
-                background_normal: ''
-                #Using RGB
-                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+
+        Button:
+            id: video
+            text: alg.get_display(arabic_reshaper.reshape("مقطع مرئي"))
+            font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+            font_size: 32
+            background_normal: ''
+            #Using RGB
+            background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+        
+        Button:
+            id: audio
+            text: alg.get_display(arabic_reshaper.reshape("مقطع صوتي"))
+            font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+            font_size: 32
+            background_normal: ''
+            #Using RGB
+            background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+        
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.3)
+
             
             Button:
-                id: audio
-                text: alg.get_display(arabic_reshaper.reshape("مقطع صوتي"))
-                font_name:"arial"
-                font_size: 32
-                background_normal: ''
-                #Using RGB
-                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+                text: alg.get_display(arabic_reshaper.reshape("عن البرنامج"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الإعدادات"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الرئيسية"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
