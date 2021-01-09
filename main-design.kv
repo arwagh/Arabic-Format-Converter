@@ -1,0 +1,42 @@
+#:import utils kivy.utils
+#:import alg bidi.algorithm
+#:import arabic_reshaper arabic_reshaper
+
+<MyGridLayout>
+    img:img
+    video:video
+    audio:audio
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                id: img
+                text: alg.get_display(arabic_reshaper.reshape("صورة"))
+                font_name:"arial"
+                font_size: 32
+                background_normal: ''
+                #Using RGB
+                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+
+            Button:
+                id: video
+                text: alg.get_display(arabic_reshaper.reshape("مقطع مرئي"))
+                font_name:"arial"
+                font_size: 32
+                background_normal: ''
+                #Using RGB
+                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+            
+            Button:
+                id: audio
+                text: alg.get_display(arabic_reshaper.reshape("مقطع صوتي"))
+                font_name:"arial"
+                font_size: 32
+                background_normal: ''
+                #Using RGB
+                background_color: (141/255.0, 165/255.0, 217/255.0, 1)
