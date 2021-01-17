@@ -4,6 +4,8 @@ from kivy.uix.widget import Widget
 from kivy.lang import Builder
 import bidi.algorithm
 from kivy.core.window import Window
+from img import ImgLayout
+
 
 #Load the .kv file,
 #we don't need to name it like the main class if we do this
@@ -18,7 +20,7 @@ class MyLayout(Widget):
 
 
     def press_img(self):
-        pass
+        return ImgLayout()
 
     def press_video(self):
         pass
