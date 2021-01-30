@@ -1,11 +1,16 @@
 #:import utils kivy.utils
 #:import alg bidi.algorithm
 #:import arabic_reshaper arabic_reshaper
+WindowManager:
+    MainWindow:
+    ImagesWindow:
+    AudiosWindow:
+    VideosWindow:
 
-<MyLayout>
-    img:img
-    video:video
-    audio:audio
+
+
+<MainWindow>   
+    name: "main_window"
 
     BoxLayout:
         orientation: "vertical"
@@ -14,7 +19,8 @@
         padding: 5
         spacing: 5
 
-    
+
+
         Button:
             id: img
             text: alg.get_display(arabic_reshaper.reshape("صورة"))
@@ -23,19 +29,12 @@
             background_normal: ''
             #Using RGB
             background_color: (141/255.0, 165/255.0, 217/255.0, 1)
-            on_press: root.press_img()
-            
+            on_release:
+                app.root.current = "images_window"
+                root.manager.transition.direction = "left"
+                    
+                
 
-
-        Button:
-            id: video
-            text: alg.get_display(arabic_reshaper.reshape("مقطع مرئي"))
-            font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
-            font_size: 32
-            background_normal: ''
-            #Using RGB
-            background_color: (141/255.0, 165/255.0, 217/255.0, 1)
-        
         Button:
             id: audio
             text: alg.get_display(arabic_reshaper.reshape("مقطع صوتي"))
@@ -44,7 +43,25 @@
             background_normal: ''
             #Using RGB
             background_color: (141/255.0, 165/255.0, 217/255.0, 1)
-        
+            on_release:
+                app.root.current = "audios_window"
+                root.manager.transition.direction = "left"
+                    
+
+            
+        Button:
+            id: video
+            text: alg.get_display(arabic_reshaper.reshape("مقطع مرئي"))
+            font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+            font_size: 32
+            background_normal: ''
+            #Using RGB
+            background_color: (141/255.0, 165/255.0, 217/255.0, 1)
+            on_release:
+                app.root.current = "videos_window"
+                root.manager.transition.direction = "left"
+
+
         BoxLayout:
             orientation: "horizontal"
             size_hint: (1, 0.3)
@@ -61,3 +78,114 @@
             Button:
                 text: alg.get_display(arabic_reshaper.reshape("الرئيسية"))
                 font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+                on_release:
+                    app.root.current = "main_window"
+                    root.manager.transition.direction = "left"
+
+
+
+
+<ImagesWindow>   
+    name: "images_window"
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 5
+        spacing: 5
+
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.3)
+
+            
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("عن البرنامج"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الإعدادات"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الرئيسية"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+                on_release:
+                    app.root.current = "main_window"
+                    root.manager.transition.direction = "right"
+
+
+
+
+
+<AudiosWindow>   
+    name: "audios_window"
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 5
+        spacing: 5
+
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.3)
+
+            
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("عن البرنامج"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الإعدادات"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الرئيسية"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+                on_release:
+                    app.root.current = "main_window"
+                    root.manager.transition.direction = "right"
+
+
+<VideosWindow>   
+    name: "videos_window"
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 5
+        spacing: 5
+
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, 0.3)
+
+            
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("عن البرنامج"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الإعدادات"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+
+            Button:
+                text: alg.get_display(arabic_reshaper.reshape("الرئيسية"))
+                font_name:"fonts/ArbFONTS-AwanZaman-Regular.ttf"
+                on_release:
+                    app.root.current = "main_window"
+                    root.manager.transition.direction = "right"
+
